@@ -132,13 +132,13 @@ export default function App() {
         <EnergyStreams />
         <NeuralNetwork />
         <AIHologram />
-        { { <EffectComposer>
+        {  <EffectComposer>
             <Bloom
   intensity={0.2}
   luminanceThreshold={0.9}
   luminanceSmoothing={0.9}
 />
-        </EffectComposer> } }
+        </EffectComposer> } 
         {/* <GroundGrid /> */}
       </Canvas>
     </CameraProvider>
