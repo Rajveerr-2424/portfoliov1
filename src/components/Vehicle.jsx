@@ -34,11 +34,11 @@ export default function Vehicle() {
 
     // ===== ACCELERATION =====
 
-    if (keys["w"]) {
+    if (keys["w"] || controls.forward) {
       speed.current += acceleration * delta;
     }
 
-    if (keys["s"]) {
+    if (keys["s"] || controls.backward) {
       speed.current -= acceleration * delta;
     }
 
@@ -58,12 +58,12 @@ export default function Vehicle() {
     const steeringFactor =
       Math.min(Math.abs(speed.current) / maxSpeed, 1);
 
-    if (keys["a"]) {
+    if (keys["a"] || controls.left) {
       ref.current.rotation.y +=
         steeringSpeed * steeringFactor * delta;
     }
 
-    if (keys["d"]) {
+    if (keys["d"] || controls.right) {
       ref.current.rotation.y -=
         steeringSpeed * steeringFactor * delta;
     }

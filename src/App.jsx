@@ -43,6 +43,8 @@ import AIHologram from "./components/environment/ai/AIHologram";
 import DataPackets from "./components/environment/ai/DataPackets";
 import EnergyStreams from "./components/environment/ai/EnergyStreams";
 
+import MobileControls from "./mobile/MobileControls";
+
 
 
 export default function App() {
@@ -131,6 +133,7 @@ export default function App() {
         <DataPackets />
         <EnergyStreams />
         <NeuralNetwork />
+        
         <AIHologram />
         {  <EffectComposer>
             <Bloom
@@ -141,6 +144,7 @@ export default function App() {
         </EffectComposer> } 
         {/* <GroundGrid /> */}
       </Canvas>
+      <MobileControls />
     </CameraProvider>
   );
 }
