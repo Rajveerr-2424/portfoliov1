@@ -1,12 +1,27 @@
 import { controls } from "../controls/controlState";
 
-if (window.innerWidth > 768) {
-  return null;
-}
-
 export default function MobileControls() {
+  // Hide controls on desktop
+  if (window.innerWidth > 768) {
+    return null;
+  }
+
   const press = (key, state) => {
     controls[key] = state;
+  };
+
+  const buttonStyle = {
+    position: "fixed",
+    width: "60px",
+    height: "60px",
+    borderRadius: "50%",
+    border: "none",
+    background: "rgba(0, 212, 255, 0.7)",
+    color: "white",
+    fontSize: "24px",
+    fontWeight: "bold",
+    zIndex: 9999,
+    touchAction: "none",
   };
 
   return (
@@ -14,13 +29,9 @@ export default function MobileControls() {
       {/* FORWARD */}
       <button
         style={{
-          position: "fixed",
+          ...buttonStyle,
           bottom: "140px",
           left: "80px",
-          width: "60px",
-          height: "60px",
-          borderRadius: "50%",
-          zIndex: 9999,
         }}
         onTouchStart={() => press("forward", true)}
         onTouchEnd={() => press("forward", false)}
@@ -31,13 +42,9 @@ export default function MobileControls() {
       {/* LEFT */}
       <button
         style={{
-          position: "fixed",
+          ...buttonStyle,
           bottom: "70px",
           left: "10px",
-          width: "60px",
-          height: "60px",
-          borderRadius: "50%",
-          zIndex: 9999,
         }}
         onTouchStart={() => press("left", true)}
         onTouchEnd={() => press("left", false)}
@@ -48,13 +55,9 @@ export default function MobileControls() {
       {/* RIGHT */}
       <button
         style={{
-          position: "fixed",
+          ...buttonStyle,
           bottom: "70px",
           left: "150px",
-          width: "60px",
-          height: "60px",
-          borderRadius: "50%",
-          zIndex: 9999,
         }}
         onTouchStart={() => press("right", true)}
         onTouchEnd={() => press("right", false)}
@@ -65,13 +68,9 @@ export default function MobileControls() {
       {/* BACKWARD */}
       <button
         style={{
-          position: "fixed",
+          ...buttonStyle,
           bottom: "0px",
           left: "80px",
-          width: "60px",
-          height: "60px",
-          borderRadius: "50%",
-          zIndex: 9999,
         }}
         onTouchStart={() => press("backward", true)}
         onTouchEnd={() => press("backward", false)}
