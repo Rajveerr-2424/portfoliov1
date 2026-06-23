@@ -1,6 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef, useEffect } from "react";
 import TronBike from "./TronBike";
+import { controls } from "../controls/controlState";
 
 export const vehicleRef = { current: null };
 
