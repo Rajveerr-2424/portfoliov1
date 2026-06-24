@@ -142,7 +142,7 @@ export default function App() {
   luminanceSmoothing={0.9}
 />
         </EffectComposer> } 
-        {/* <GroundGrid /> */}
+         <GroundGrid />
       </Canvas>
       <MobileControls />
     </CameraProvider>
