@@ -2,10 +2,12 @@ import { useFrame } from "@react-three/fiber";
 import { useRef, useEffect } from "react";
 import TronBike from "./TronBike";
 import { controls } from "../controls/controlState";
+import { useCamera } from "../context/CameraContext";
 
 export const vehicleRef = { current: null };
 
 const keys = {};
+
 
 window.addEventListener("keydown", (e) => {
   keys[e.key.toLowerCase()] = true;
@@ -16,6 +18,7 @@ window.addEventListener("keyup", (e) => {
 });
 
 export default function Vehicle() {
+  const { editorMode } = useCamera();
   const ref = useRef();
 
   const speed = useRef(0);
@@ -25,6 +28,7 @@ export default function Vehicle() {
   }, []);
 
   useFrame((_, delta) => {
+    if (editorMode) return;
     if (!ref.current) return;
 
     // ===== VEHICLE SETTINGS =====

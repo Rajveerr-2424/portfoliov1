@@ -4,12 +4,15 @@ const CameraContext = createContext();
 
 export function CameraProvider({ children }) {
   const [cameraMode, setCameraMode] = useState("drive");
+  const [editorMode, setEditorMode] = useState(false);
 
   return (
     <CameraContext.Provider
       value={{
         cameraMode,
         setCameraMode,
+        editorMode,
+        setEditorMode,
       }}
     >
       {children}

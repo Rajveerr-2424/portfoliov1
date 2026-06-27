@@ -44,6 +44,11 @@ import DataPackets from "./components/environment/ai/DataPackets";
 import EnergyStreams from "./components/environment/ai/EnergyStreams";
 
 import MobileControls from "./mobile/MobileControls";
+import AssemblyBay from "./components/environment/robotics/AssemblyBay";
+import ConveyorBelt from "./components/environment/robotics/ConveyorBelt";
+
+import SpectatorCamera from "./components/SpectatorCamera";
+
 
 
 
@@ -109,10 +114,13 @@ export default function App() {
         <Vehicle />
 
         <CameraManager />
+        {/* <SpectatorCamera /> */}
 
         {/* Temporary */}
         <CameraDebug />
         <AITower />
+        <AssemblyBay />
+        <ConveyorBelt />
         <RoboticsLab />
         <SkillsTower />
         <ContactTerminal />
