@@ -21,11 +21,11 @@ export default function ConveyorBelt() {
 
     // Rotate rollers
     if (frontRoller.current) {
-      frontRoller.current.rotation.z += delta * 5;
+      frontRoller.current.rotation.x += delta * 5;
     }
 
     if (backRoller.current) {
-      backRoller.current.rotation.z += delta * 5;
+      backRoller.current.rotation.x += delta * 5;
     }
   });
 
@@ -126,9 +126,9 @@ export default function ConveyorBelt() {
       <mesh
         ref={frontRoller}
         position={[0, 0.42, -13.5]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[Math.PI/2, 0, Math.PI/2.01]}
       >
-        <cylinderGeometry args={[0.28, 0.28, 4.4, 32]} />
+        <cylinderGeometry args={[0.28, 0.28, 6.4, 32]} />
         <meshStandardMaterial
           color="#777777"
           metalness={1}
@@ -142,9 +142,9 @@ export default function ConveyorBelt() {
       <mesh
         ref={backRoller}
         position={[0, 0.42, 13.5]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[Math.PI/2 , 0, Math.PI/2.03]}
       >
-        <cylinderGeometry args={[0.28, 0.28, 4.4, 32]} />
+        <cylinderGeometry args={[0.28, 0.28, 5.8, 32]} />
         <meshStandardMaterial
           color="#777777"
           metalness={1}

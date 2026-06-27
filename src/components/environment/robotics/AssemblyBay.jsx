@@ -6,7 +6,7 @@ import Pipe from "./Pipe";
 
 export default function AssemblyBay() {
   return (
-    <group position={[-85, 0, -42.4]}>
+    <group position={[-85, 0, -41.2]}>
 
       {/* ========================= */}
       {/* FOUNDATION */}
