@@ -6,7 +6,7 @@ import Pipe from "./Pipe";
 
 export default function AssemblyBay() {
   return (
-    <group position={[-85, 0, -39.2]}>
+    <group position={[-85, 0, -42.4]}>
 
       {/* ========================= */}
       {/* FOUNDATION */}
@@ -56,10 +56,10 @@ export default function AssemblyBay() {
       {/* Roof Left */}
 
 <mesh
-  position={[-3.2, 10.5, 0]}
+  position={[-4.5, 9.5, 0]}
   rotation={[0, 0, Math.PI / 10]}
 >
-  <boxGeometry args={[9, 0.35, 14.5]} />
+  <boxGeometry args={[11, 0.35, 14.5]} />
 
   <meshStandardMaterial
     color="#2b2b2b"
@@ -70,10 +70,10 @@ export default function AssemblyBay() {
 {/* Roof Right */}
 
 <mesh
-  position={[3.2, 10.5, 0]}
+  position={[4.5, 9.5, 0]}
   rotation={[0, 0, -Math.PI / 10]}
 >
-  <boxGeometry args={[9, 0.35, 14.5]} />
+  <boxGeometry args={[11, 0.35, 14.5]} />
 
   <meshStandardMaterial
     color="#2b2b2b"
@@ -81,7 +81,7 @@ export default function AssemblyBay() {
   />
 </mesh>
 
-<mesh position={[0,8.95,0]}>
+<mesh position={[0,10.65,0]}>
     <boxGeometry args={[0.4,0.4,14.5]} />
 
     <meshStandardMaterial
@@ -159,10 +159,10 @@ export default function AssemblyBay() {
 
 <mesh
 position={[0,8.6,-4]}
-rotation={[0,0,-Math.PI/10]}
+rotation={[0,0,0]}
 >
 
-<boxGeometry args={[6,0.1,1]} />
+<boxGeometry args={[8,0.1,1]} />
 
 <meshStandardMaterial
 color="#FF8800"
@@ -196,7 +196,7 @@ color="#555"
 </mesh>
 
 
-<mesh position={[0,6.3,11.35]}>
+<mesh position={[0,6.3,7.35]}>
 
 <boxGeometry args={[6.3,0.35,0.05]} />
 

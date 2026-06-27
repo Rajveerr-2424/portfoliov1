@@ -3,35 +3,43 @@ export default function RobotCrate({
 }) {
   return (
     <group position={position}>
-      {/* Main Crate */}
+
+      {/* Main Body */}
+
       <mesh>
-        <boxGeometry args={[1, 1, 1]} />
+        <boxGeometry args={[1.4, 1.2, 1.4]} />
+
         <meshStandardMaterial
           color="#444444"
-          metalness={0.7}
+          metalness={0.8}
           roughness={0.3}
         />
       </mesh>
 
       {/* Top Glow */}
-      <mesh position={[0, 0.52, 0]}>
-        <boxGeometry args={[1.02, 0.05, 1.02]} />
+
+      <mesh position={[0,0.63,0]}>
+        <boxGeometry args={[1.42,0.05,1.42]} />
+
         <meshStandardMaterial
           color="#FF8800"
           emissive="#FF8800"
-          emissiveIntensity={3}
+          emissiveIntensity={4}
         />
       </mesh>
 
-      {/* Front Glow Strip */}
-      <mesh position={[0, 0, 0.52]}>
-        <boxGeometry args={[0.6, 0.15, 0.04]} />
+      {/* Front Strip */}
+
+      <mesh position={[0,0,0.72]}>
+        <boxGeometry args={[0.8,0.18,0.05]} />
+
         <meshStandardMaterial
           color="#FFAA33"
           emissive="#FFAA33"
-          emissiveIntensity={5}
+          emissiveIntensity={6}
         />
       </mesh>
+
     </group>
   );
 }
