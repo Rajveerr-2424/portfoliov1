@@ -7,26 +7,188 @@ export default function RobotArm() {
   const shoulder = useRef();
   const elbow = useRef();
 
-  useFrame(({ clock }) => {
+  const leftFinger = useRef();
+const rightFinger = useRef();
 
-    const t = clock.getElapsedTime();
+  const state = useRef(0);
 
-    base.current.rotation.y =
-      Math.sin(t * 0.4) * 0.7;
+const timer = useRef(0);
 
-    shoulder.current.rotation.z =
-      Math.sin(t * 0.8) * 0.35;
+useFrame((_, delta) => {
 
-    elbow.current.rotation.z =
-      Math.cos(t * 0.8) * 0.45;
+    timer.current += delta;
 
-  });
+    switch(state.current){
+
+        // WAIT
+
+        case 0:
+
+            base.current.rotation.y +=
+            (-0.55-base.current.rotation.y)*0.05;
+
+            shoulder.current.rotation.z +=
+            (0.45-shoulder.current.rotation.z)*0.05;
+
+            elbow.current.rotation.z +=
+            (0.7-elbow.current.rotation.z)*0.05;
+
+            if(timer.current>2){
+
+                timer.current=0;
+
+                state.current=1;
+
+            }
+
+        break;
+
+        // LOWER
+
+        case 1:
+
+            shoulder.current.rotation.z +=
+            (1.15-shoulder.current.rotation.z)*0.06;
+
+            elbow.current.rotation.z +=
+            (0.15-elbow.current.rotation.z)*0.06;
+
+            if(timer.current>1){
+
+                timer.current=0;
+
+                state.current=2;
+
+            }
+
+        break;
+
+        // PICK
+
+        case 2:
+
+            if(timer.current>0.5){
+
+                timer.current=0;
+
+                state.current=3;
+
+            }
+
+        break;
+
+        // ROTATE
+
+        case 3:
+
+            base.current.rotation.y +=
+            (0.65-base.current.rotation.y)*0.05;
+
+            shoulder.current.rotation.z +=
+            (0.4-shoulder.current.rotation.z)*0.05;
+
+            elbow.current.rotation.z +=
+            (0.8-elbow.current.rotation.z)*0.05;
+
+            if(timer.current>2){
+
+                timer.current=0;
+
+                state.current=4;
+
+            }
+
+        break;
+
+        // DROP
+
+        case 4:
+
+            shoulder.current.rotation.z +=
+            (1.05-shoulder.current.rotation.z)*0.05;
+
+            elbow.current.rotation.z +=
+            (0.25-elbow.current.rotation.z)*0.05;
+
+            if(timer.current>1){
+
+                timer.current=0;
+
+                state.current=5;
+
+            }
+
+        break;
+
+        // RETURN
+
+        case 5:
+
+            base.current.rotation.y +=
+            (-0.55-base.current.rotation.y)*0.05;
+
+            shoulder.current.rotation.z +=
+            (0.45-shoulder.current.rotation.z)*0.05;
+
+            elbow.current.rotation.z +=
+            (0.7-elbow.current.rotation.z)*0.05;
+
+            if(timer.current>2){
+
+                timer.current=0;
+
+                state.current=0;
+
+            }
+
+        break;
+
+    }
+
+    //gripper animation
+    const open =
+state.current===0 ||
+state.current===1 ||
+state.current===4 ||
+state.current===5;
+
+const gap=open?0.22:0.10;
+
+leftFinger.current.position.x +=
+(-gap-leftFinger.current.position.x)*0.08;
+
+rightFinger.current.position.x +=
+(gap-rightFinger.current.position.x)*0.08;
+
+});
 
   return (
 
-    <group position={[-88,0.2,-5]}>
+    <group
+    position={[-80.8,0.2,-5]}
+    scale={1.5}
+>
 
+      <mesh position={[0,0.8,0]}>
+
+<sphereGeometry args={[0.12,16,16]}/>
+
+<meshStandardMaterial
+
+color="#00FF88"
+
+emissive="#00FF88"
+
+emissiveIntensity={6}
+
+/>
+
+</mesh>
+      
+      
       {/* Base */}
+
+
 
       <mesh>
 
@@ -94,17 +256,39 @@ export default function RobotArm() {
 
             {/* Gripper */}
 
-            <mesh position={[0,2.2,0]}>
+            <group position={[0,2.2,0]}>
 
-              <boxGeometry args={[0.8,0.2,0.8]} />
+    <mesh
+    ref={leftFinger}
+    position={[-0.22,0.3,0]}
+    >
 
-              <meshStandardMaterial
-                color="#00D5FF"
-                emissive="#00D5FF"
-                emissiveIntensity={2}
-              />
+        <boxGeometry args={[0.08,0.6,0.08]}/>
 
-            </mesh>
+        <meshStandardMaterial
+        color="#FF8800"
+        emissive="#FF8800"
+        emissiveIntensity={3}
+        />
+
+    </mesh>
+
+    <mesh
+    ref={rightFinger}
+    position={[0.22,0.3,0]}
+    >
+
+        <boxGeometry args={[0.08,0.6,0.08]}/>
+
+        <meshStandardMaterial
+        color="#FF8800"
+        emissive="#FF8800"
+        emissiveIntensity={3}
+        />
+
+    </mesh>
+
+</group>
 
           </group>
 

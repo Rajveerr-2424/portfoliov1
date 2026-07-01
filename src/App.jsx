@@ -47,6 +47,11 @@ import MobileControls from "./mobile/MobileControls";
 import AssemblyBay from "./components/environment/robotics/AssemblyBay";
 import ConveyorBelt from "./components/environment/robotics/ConveyorBelt";
 import RobotArm from "./components/environment/robotics/RobotArm";
+import TestingPlatform from "./components/environment/robotics/TestingPlatform";
+import ScannerBeam from "./components/environment/robotics/ScannerBeam";
+import InspectionHologram from "./components/environment/robotics/InspectionHologram";
+
+
 
 
 import SpectatorCamera from "./components/SpectatorCamera";
@@ -127,6 +132,12 @@ export default function App() {
         <ConveyorBelt />
         <RoboticsLab />
         <RobotArm/>
+        <TestingPlatform />
+        <ScannerBeam />
+        <InspectionHologram />
+
+
+
         <SkillsTower />
         <ContactTerminal />
         

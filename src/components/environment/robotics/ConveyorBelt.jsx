@@ -12,7 +12,7 @@ export default function ConveyorBelt() {
     crates.current.forEach((crate) => {
       if (!crate) return;
 
-      crate.position.z += delta * 2;
+      crate.position.z += delta * 1.35;
 
       if (crate.position.z > 13) {
         crate.position.z = -13;
@@ -50,7 +50,7 @@ export default function ConveyorBelt() {
       {/* ===================== */}
 
       <mesh position={[0, 0.56, 0]}>
-        <boxGeometry args={[4.2, 0.08, 28]} />
+        <boxGeometry args={[4.8, 0.08, 28]} />
         <meshStandardMaterial color="#111111" />
       </mesh>
 
@@ -58,12 +58,12 @@ export default function ConveyorBelt() {
       {/* SIDE RAILS */}
       {/* ===================== */}
 
-      <mesh position={[-2.15, 0.78, 0]}>
+      <mesh position={[-2.45, 0.78, 0]}>
         <boxGeometry args={[0.12, 0.35, 28]} />
         <meshStandardMaterial color="#777777" />
       </mesh>
 
-      <mesh position={[2.15, 0.78, 0]}>
+      <mesh position={[2.45, 0.78, 0]}>
         <boxGeometry args={[0.12, 0.35, 28]} />
         <meshStandardMaterial color="#777777" />
       </mesh>
@@ -72,7 +72,7 @@ export default function ConveyorBelt() {
       {/* EDGE LIGHTS */}
       {/* ===================== */}
 
-      <mesh position={[-2.02, 0.95, 0]}>
+      <mesh position={[-2.30, 0.95, 0]}>
         <boxGeometry args={[0.05, 0.05, 28]} />
         <meshStandardMaterial
           color="#FF8800"
@@ -81,7 +81,7 @@ export default function ConveyorBelt() {
         />
       </mesh>
 
-      <mesh position={[2.02, 0.95, 0]}>
+      <mesh position={[2.30, 0.95, 0]}>
         <boxGeometry args={[0.05, 0.05, 28]} />
         <meshStandardMaterial
           color="#FF8800"
@@ -96,7 +96,7 @@ export default function ConveyorBelt() {
 
       {[-10, -5, 0, 5, 10].map((z) => (
         <group key={z}>
-          <mesh position={[-1.8, -0.15, z]}>
+          <mesh position={[-2.1, -0.15, z]}>
             <boxGeometry args={[0.22, 1.5, 0.22]} />
             <meshStandardMaterial
               color="#666666"
@@ -104,7 +104,7 @@ export default function ConveyorBelt() {
             />
           </mesh>
 
-          <mesh position={[1.8, -0.15, z]}>
+          <mesh position={[2.1, -0.15, z]}>
             <boxGeometry args={[0.22, 1.5, 0.22]} />
             <meshStandardMaterial
               color="#666666"
@@ -113,7 +113,7 @@ export default function ConveyorBelt() {
           </mesh>
 
           <mesh position={[0, 0.1, z]}>
-            <boxGeometry args={[3.6, 0.12, 0.12]} />
+            <boxGeometry args={[4.2, 0.12, 0.12]} />
             <meshStandardMaterial color="#555555" />
           </mesh>
         </group>
