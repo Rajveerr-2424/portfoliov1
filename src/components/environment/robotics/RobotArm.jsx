@@ -48,10 +48,10 @@ useFrame((_, delta) => {
         case 1:
 
             shoulder.current.rotation.z +=
-            (1.15-shoulder.current.rotation.z)*0.06;
+            (1.55-shoulder.current.rotation.z)*0.16;
 
             elbow.current.rotation.z +=
-            (0.15-elbow.current.rotation.z)*0.06;
+            (1.15-elbow.current.rotation.z)*0.06;
 
             if(timer.current>1){
 
@@ -105,10 +105,10 @@ useFrame((_, delta) => {
         case 4:
 
             shoulder.current.rotation.z +=
-            (1.05-shoulder.current.rotation.z)*0.05;
+            (2.05-shoulder.current.rotation.z)*0.05;
 
             elbow.current.rotation.z +=
-            (0.25-elbow.current.rotation.z)*0.05;
+            (1.85-elbow.current.rotation.z)*0.05;
 
             if(timer.current>1){
 
